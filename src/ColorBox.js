@@ -9,9 +9,8 @@ export default class ColorBox extends Component {
         <div className='copy-container'></div>
         <div className='box-content'>
           <span>{name}</span>
-
-          <button className='copy-button'>Copy</button>
         </div>
+        <button className='copy-button'>Copy</button>
         <span className='see-more'>More</span>
       </div>
     );
