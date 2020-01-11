@@ -88,6 +88,22 @@ class PaletteFormNav extends Component {
             </Typography>
           </Toolbar>
           <div className={classes.navBtns}>
+            {/* <ValidatorForm onSubmit={() => handleSubmit(newPaletteName)}>
+              <TextValidator
+                label='Palette Name'
+                onChange={this.handleChange}
+                value={this.state.newPaletteName}
+                name='newPaletteName'
+                validators={['required', 'isPaletteNameUnique']}
+                errorMessages={[
+                  'Enter palette name',
+                  'Palette Name already used'
+                ]}
+              />
+              <Button variant='contained' color='primary' type='submit'>
+                Save Palette
+              </Button>
+            </ValidatorForm> */}
             <Link to='/'>
               <Button variant='contained' color='secondary'>
                 Go Back
