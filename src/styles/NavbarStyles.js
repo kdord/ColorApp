@@ -25,7 +25,7 @@ export default {
     }
   },
   slider: {
-    width: '350px',
+    width: '300px',
     margin: '0 20px',
     display: 'inline-block',
 
@@ -44,7 +44,7 @@ export default {
       height: '13px',
       marginTop: '-3px'
     },
-    [sizes.down('md')]: {
+    [sizes.down('sm')]: {
       width: '150px'
     }
   },
