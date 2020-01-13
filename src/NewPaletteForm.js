@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm';
+import seedColors from './seedColors';
 
 import classNames from 'classnames';
 import Drawer from '@material-ui/core/Drawer';
@@ -25,7 +26,7 @@ class NewPaletteForm extends Component {
     this.state = {
       open: true,
       currentColor: 'teal',
-      colors: this.props.palettes[0].colors,
+      colors: seedColors[0].colors,
       newPaletteName: ''
     };
 
