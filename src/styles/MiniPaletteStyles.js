@@ -6,13 +6,14 @@ export default {
     padding: '0.5rem',
     position: 'relative',
     overflow: 'hidden',
-    '&:hover': {
-      cursor: 'pointer'
+    cursor: 'pointer',
+    '&:hover svg': {
+      opacity: 1
     }
   },
   colors: {
     backgroundColor: '#dae1e3',
-    height: '150px',
+    height: '135px',
     width: '100%',
     borderRadius: '5px',
     overflow: 'hidden'
@@ -38,5 +39,19 @@ export default {
     margin: '0 auto',
     position: 'relative',
     marginBottom: '-4px'
+  },
+  delete: {},
+  deleteIcon: {
+    color: 'white',
+    backgroundColor: '#eb3d30',
+    width: '20px',
+    height: '20px',
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    padding: '5px',
+    zIndex: 10,
+    opacity: 0,
+    transition: 'all 0.3s ease-in-out'
   }
 };
