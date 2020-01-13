@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Slider from 'rc-slider';
-import 'rc-slider/assets/index.css';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
 import { IconButton } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import styles from './styles/NavbarStyles';
 import { withStyles } from '@material-ui/styles';
+import 'rc-slider/assets/index.css';
+import styles from './styles/NavbarStyles';
 
 class Navbar extends Component {
   constructor(props) {
@@ -21,19 +21,21 @@ class Navbar extends Component {
     this.handleFormatChange = this.handleFormatChange.bind(this);
     this.closeSnackbar = this.closeSnackbar.bind(this);
   }
+
   handleFormatChange(evt) {
     this.setState({ format: evt.target.value, open: true }, () => {
       this.props.handleChange(evt.target.value);
     });
-
-    //
   }
+
   closeSnackbar() {
     this.setState({ open: false });
   }
+
   render() {
     const { level, changeLevel, showingAllColors, classes } = this.props;
     const { format } = this.state;
+
     return (
       <header className={classes.Navbar}>
         <div className={classes.logo}>

@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
+
 import { Route, Switch } from 'react-router-dom';
-import Palette from './Palette';
-import seedColors from './seedColors';
 import { generatePalette } from './colorHelpers';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
+import Palette from './Palette';
 import PaletteList from './PaletteList';
 import SingleColorPalette from './SingleColorPalette';
 import NewPaletteForm from './NewPaletteForm';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
 import Page from './Page';
+
+import seedColors from './seedColors';
 
 class App extends Component {
   constructor(props) {
@@ -24,6 +28,7 @@ class App extends Component {
       return palette.id === id;
     });
   }
+
   deletePalette(id) {
     this.setState(
       st => ({
@@ -32,12 +37,14 @@ class App extends Component {
       this.syncLocalStorage
     );
   }
+
   savePalette(newPalette) {
     this.setState(
       { palettes: [...this.state.palettes, newPalette] },
       this.syncLocalStorage
     );
   }
+
   syncLocalStorage() {
     //save palettes to local storage
     window.localStorage.setItem(
@@ -45,6 +52,7 @@ class App extends Component {
       JSON.stringify(this.state.palettes)
     );
   }
+
   render() {
     return (
       <Route

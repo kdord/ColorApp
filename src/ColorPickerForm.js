@@ -15,6 +15,7 @@ class ColorPickerForm extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleAddNewColor = this.handleAddNewColor.bind(this);
   }
+
   componentDidMount() {
     ValidatorForm.addValidationRule('isColorNameUnique', value =>
       this.props.colors.every(
@@ -25,14 +26,17 @@ class ColorPickerForm extends Component {
       this.props.colors.every(({ color }) => color !== this.state.currentColor)
     );
   }
+
   updateCurrentColor(newColor) {
     this.setState({ currentColor: newColor.hex });
   }
+
   handleChange(evt) {
     this.setState({
       [evt.target.name]: evt.target.value
     });
   }
+
   handleAddNewColor() {
     const newColor = {
       color: this.state.currentColor,
@@ -45,6 +49,7 @@ class ColorPickerForm extends Component {
   render() {
     const { paletteIsFull, classes } = this.props;
     const { newColorName, currentColor } = this.state;
+
     return (
       <div>
         <ChromePicker

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+
 import PaletteFormNav from './PaletteFormNav';
 import ColorPickerForm from './ColorPickerForm';
+
 import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
@@ -11,6 +12,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { Button } from '@material-ui/core';
 import DraggableColorList from './DraggableColorList';
 import { arrayMove } from 'react-sortable-hoc';
+import { withStyles } from '@material-ui/core/styles';
 import styles from './styles/NewPaletteFormStyles';
 
 class NewPaletteForm extends Component {
@@ -23,7 +25,6 @@ class NewPaletteForm extends Component {
     this.state = {
       open: true,
       currentColor: 'teal',
-
       colors: this.props.palettes[0].colors,
       newPaletteName: ''
     };
@@ -56,6 +57,7 @@ class NewPaletteForm extends Component {
       [evt.target.name]: evt.target.value
     });
   }
+
   handleSubmit(newPalette) {
     newPalette.id = newPalette.paletteName.toLowerCase().replace(/ /g, '-');
     newPalette.colors = this.state.colors;
@@ -63,11 +65,13 @@ class NewPaletteForm extends Component {
     this.props.savePalette(newPalette);
     this.props.history.push('/');
   }
+
   deleteColor(colorName) {
     this.setState({
       colors: this.state.colors.filter(color => color.name !== colorName)
     });
   }
+
   onSortEnd = ({ oldIndex, newIndex }) => {
     this.setState(({ colors }) => ({
       colors: arrayMove(colors, oldIndex, newIndex)
@@ -77,6 +81,7 @@ class NewPaletteForm extends Component {
   clearColors() {
     this.setState({ colors: [] });
   }
+
   addRandomColor() {
     //pick random color of existing palettes
     const allColors = this.props.palettes.map(p => p.colors).flat();
@@ -84,6 +89,7 @@ class NewPaletteForm extends Component {
     const randomColor = allColors[rand];
     this.setState({ colors: [...this.state.colors, randomColor] });
   }
+
   render() {
     const { classes, maxColors, palettes } = this.props;
     const { open, colors } = this.state;
