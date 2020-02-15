@@ -4,7 +4,7 @@
 
 ### Live Demo
 
-To see the app in action, go to [blogApp](https://kdord-color-project.netlify.com)
+To see the app in action, go to [colorApp](https://kdord-color-project.netlify.com)
 
 ### Features
 
